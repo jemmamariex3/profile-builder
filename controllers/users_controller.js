@@ -5,8 +5,17 @@ var express = require('express');
 var router = express.Router();
 var user = require('../models/user.js');
 
-router.get('/mydashboard/', function (req, res) {
-	res.redirect('mydashboard/profile');
+router.get('/mydashboard', function (req, res) {
+	res.render("dashboard");
+});
+
+router.get('/mydashboard/:page', function(req,res){
+	console.log(req.params);
+	res.render(req.params.page);
+});
+
+router.get('/mydashboard2/', function (req, res) {
+	res.render("dashboard");
 });
 
 router.get('/users', function (req, res) {
