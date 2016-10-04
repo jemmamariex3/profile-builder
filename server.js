@@ -21,10 +21,11 @@ app.use(bodyParser.urlencoded({
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
-var hbs = exphbs.create({
-    // defaultLayout: 'main',
-    helpers      : helpers,
+console.log(helpers);
 
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+    helpers: helpers,   
     // Uses multiple partials dirs, templates in "shared/templates/" are shared
     // with the client-side of the app (see below).
     partialsDir: [
@@ -32,9 +33,7 @@ var hbs = exphbs.create({
     ]
 });
 
-app.engine('handlebars', exphbs({
-	defaultLayout: 'main'
-}));
+app.engine('handlebars', hbs.engine);
 app.use(express.static(process.cwd() + '/public'));
 app.set('view engine', 'handlebars');
 
