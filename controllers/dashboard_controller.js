@@ -45,16 +45,22 @@ router.get('/', function(req, res){
 });
 
 router.get('/mydashboard', function (req, res) {
-	res.render("dashboard");
+	res.render("dashboard", function(err, html){
+		console.log(err);
+		if(err!==null){
+			return res.redirect('/mydashboard');
+			throw err;
+		}
+
+		res.send(html);
+	});
 });
 
 //This allows you to route to any named view dynamically assuming that it exists
 router.get('/mydashboard/:page', function(req ,res){
 
-	console.log(err);
-	res.render(req.params.page, function(err, html) {
-  		res.send(html);
-	});
+	console.log(req.params.page);
+	res.render(req.params.page);
 });
 
 module.exports = router;

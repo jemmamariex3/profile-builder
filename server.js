@@ -37,6 +37,10 @@ var projectRoutes = require('./controllers/projects_controller.js')
 app.use('/', dashboardRoutes);
 app.use('/', userRoutes);
 app.use('/', projectRoutes);
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.redirect('/mydashboard');
+});
 
 var port = 3000;
 app.listen(port);
