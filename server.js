@@ -1,8 +1,3 @@
-/*
-Here is where you set up your server file.
-express middleware.
-*/
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -12,16 +7,13 @@ var helpers = require('./config/helpers');
 
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory.
-
 
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
-// override with POST having ?_method=DELETE
+
 app.use(methodOverride('_method'));
 
-console.log(helpers);
 
 var hbs = exphbs.create({
     defaultLayout: 'main',
@@ -38,11 +30,13 @@ app.use(express.static(process.cwd() + '/public'));
 app.set('view engine', 'handlebars');
 
 //var routes = require('./controllers/cats_controller.js');
-var userRoutes = require('./controllers/users_controller.js')
+var dashboardRoutes = require('./controllers/dashboard_controller.js');
+var userRoutes = require('./controllers/users_controller.js');
+var projectRoutes = require('./controllers/projects_controller.js')
 
-
-
+app.use('/', dashboardRoutes);
 app.use('/', userRoutes);
+app.use('/', projectRoutes);
 
 var port = 3000;
 app.listen(port);
