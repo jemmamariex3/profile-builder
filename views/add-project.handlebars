@@ -36,7 +36,7 @@
 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
-<div id="modal-add-project" class="modal fade" role="dialog">
+<div id="modal-add-project" class="modal modal-fullscreen fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -100,7 +100,16 @@
                 { "data": "description" },
                 { "data": "linkGitHub" }
             ]
-        });        
+        });   
+
+        $(".modal-fullscreen").on('show.bs.modal', function () {
+                 setTimeout( function() {
+                   $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+                 }, 0);
+            });
+            $(".modal-fullscreen").on('hidden.bs.modal', function () {
+                $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+        });     
     });
 </script>
 {{/section}}

@@ -14,7 +14,7 @@ var currentUser;
 
 user.findById(1).then(function(data){
 	currentUser = data;
-})
+});
 
 
 router.get('/api/projects', function(req, res) {
