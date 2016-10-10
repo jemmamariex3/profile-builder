@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <a class="btn btn-primary" data-toggle="modal" href='#modal-add-project'>Trigger modal</a>
+   
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -17,7 +17,12 @@
         </div>
     </div>
 
-
+    <div class="row">
+        <div class="col-xs-12">
+            <a class="btn btn-primary pull-right" data-toggle="modal" href='#modal-add-project'>Add Project</a>
+        </div>  
+    </div>
+    
     <div class="table-responsive">
         <table id="example" class="table table-bordered table-hover" cellspacing="0" width="100%">
             <thead>
@@ -33,7 +38,6 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 <!-- Modal -->
 <div id="modal-add-project" class="modal modal-fullscreen fade" role="dialog">
@@ -46,7 +50,7 @@
         <h4 class="modal-title">Add Project</h4>
       </div>
       <div class="modal-body">
-        <form role="form" name="addproject" action="/api/projects" method="POST">
+        <form role="form" name="addproject" action="/api/projects?userId=1" method="POST">
             <div class="form-group">
                 <label for="disabledSelect">Name</label>
                 <input class="form-control" type="text" name="name" required="true">

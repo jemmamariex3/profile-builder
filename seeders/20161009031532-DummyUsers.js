@@ -8,7 +8,7 @@ module.exports = {
                 firstName: "Jonathan",
                 lastName: "Arellano",
                 email: "jarellano@gmail.com",
-                password: "password",
+                password: "$2a$10$kUBvM0Czt0SSP9H1glH9lu49wwtvtfxLDeH0q93Z66Tbiirvxcnsq",
                 description: "this is my profile",
                 linkGitHub: "github.com",
                 username: "jarellano"
@@ -16,7 +16,7 @@ module.exports = {
                 firstName: "Jema",
                 lastName: "Tiongson",
                 email: "jtiongson@gmail.com",
-                password: "password",
+                password: "$2a$10$kUBvM0Czt0SSP9H1glH9lu49wwtvtfxLDeH0q93Z66Tbiirvxcnsq",
                 description: "this is my profile",
                 linkGitHub: "github.com",
                 username: "jtiongson"
@@ -24,7 +24,7 @@ module.exports = {
                 firstName: "Ramiro",
                 lastName: "Lopez",
                 email: "rlopez@gmail.com",
-                password: "password",
+                password: "$2a$10$kUBvM0Czt0SSP9H1glH9lu49wwtvtfxLDeH0q93Z66Tbiirvxcnsq",
                 description: "this is my profile",
                 linkGitHub: "github.com",
                 username: "rlopez"
@@ -32,7 +32,7 @@ module.exports = {
                 firstName: "Tim",
                 lastName: "Hwang",
                 email: "thwang@gmail.com",
-                password: "password",
+                password: "$2a$10$kUBvM0Czt0SSP9H1glH9lu49wwtvtfxLDeH0q93Z66Tbiirvxcnsq",
                 description: "this is my profile",
                 linkGitHub: "github.com",
                 username: "somethingbig"
