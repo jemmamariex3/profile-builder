@@ -13,7 +13,7 @@ module.exports = function(app) {
     function findByUsername(username, cb) {
         user.findOne({
             where: {
-                'username': ˆ
+                'username': username
             }
         }).then(function(data) {
             if (data == null) {
