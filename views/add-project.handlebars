@@ -1,0 +1,120 @@
+<div class="container-fluid">
+   
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Add Project
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>  <a href="/mydashboard">Dashboard</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-edit"></i> Projects
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <a class="btn btn-primary pull-right" data-toggle="modal" href='#modal-add-project'>Add Project</a>
+        </div>  
+    </div>
+    
+    <div class="table-responsive">
+        <table id="example" class="table table-bordered table-hover" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Live Demo</th>
+                    <th>Description</th>
+                    <th>GitHub</th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="modal-add-project" class="modal modal-fullscreen fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Project</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form" name="addproject" action="/api/projects?userId=1" method="POST">
+            <div class="form-group">
+                <label for="disabledSelect">Name</label>
+                <input class="form-control" type="text" name="name" required="true">
+            </div>
+            <div class="form-group">
+                <label for="disabledSelect">Link to Live Demo</label>
+                <input class="form-control" type="text" name="linkLiveDemo" required="true">
+            </div>
+            <div class="form-group">
+                <label for="disabledSelect">Descriptiion</label>
+                <input class="form-control" type="text" name="description" required="true">
+            </div>
+            <div class="form-group" action="/api/projects" method="POST">
+                <label for="disabledSelect">Link to GitHub</label>
+                <input class="form-control" type="text" name="linkGitHub" required="true">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Project</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+{{#section 'script'}}
+
+<script type="text/javascript">
+    $(function(){
+        $('form[name=addproject]').submit(function(){
+            $("#modal-add-project").modal('toggle');
+            $.post($(this).attr('action'), $(this).serialize(), function(res){
+                console.log(res);
+                $('form[name=addproject]')[0].reset();
+                table.ajax.reload( null, false );
+            });
+
+            return false; // prevent default action
+        });
+
+        
+        var table = $('#example').DataTable( {
+            "ajax": {
+                url: "/api/projects",
+                dataSrc: ''
+            },
+            
+            "columns": [
+                { "data": "name" },
+                { "data": "linkLiveDemo" },
+                { "data": "description" },
+                { "data": "linkGitHub" }
+            ]
+        });   
+
+        $(".modal-fullscreen").on('show.bs.modal', function () {
+                 setTimeout( function() {
+                   $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+                 }, 0);
+            });
+            $(".modal-fullscreen").on('hidden.bs.modal', function () {
+                $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+        });     
+    });
+</script>
+{{/section}}
+<!-- /.container-fluid -->  

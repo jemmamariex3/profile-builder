@@ -3,66 +3,77 @@ Here is where you create all the functions that will do the routing for your app
 */
 var express = require('express');
 var router = express.Router();
-var user = require('../models/user.js');
 
-router.get('/mydashboard', function (req, res) {
-	res.render("dashboard");
-});
+var models = require('../models');
+var user = models.User;
+var sequelizeConnection = models.sequelize;
 
-router.get('/mydashboard/:page', function(req,res){
-	console.log(req.params);
-	res.render(req.params.page);
-});
+module.exports = function(app) {
+    router.get('/users', function(req, res) {
+        user.findAll().then(function(data) {
+            res.json(data);
+        });
+    });
 
-router.get('/login', function (req, res) {
-	res.render("login");
-});
 
-router.get('/mydashboard2/', function (req, res) {
-	res.render("dashboard");
-});
-
-router.get('/users', function (req, res) {
-	user.all(function (data) {
-		var hbsObject = { users: data };
-		console.log(hbsObject);
-		//res.render('index', hbsObject);
-		res.json(hbsObject);
+	router.get('/login', function (req, res) {
+		res.render("login");
 	});
-});
-router.get('/users/:id', function (req, res){
-	user.byId(req.params.id, function(data){
-		res.json(data);
-	})
-});
 
-router.post('/users/create', function (req, res) {
-	var columns = ["FirstName", "LastName", "Email", "Password", "GitHubLink", "Description", "Template"];
-	var b = req.body;
-	var values = [b.FirstName, b.LastName, b.Email, b.Password, b.GitHubLink, b.Description, b.Template];
-	user.create(columns, values, function () {
-		res.redirect('/users');
-	});
-});
 
-router.put('/users/update/:id', function (req, res) {
-	var condition = 'UserId = ' + req.params.id;
-	var b = req.body;
-	var values = {
-		FirstName: b.FirstName, 
-		LastName: b.LastName, 
-		Email: b.Email,
-		Password: b.Password, 
-		GitHubLink: b.GitHubLink, 
-		Description: b.Description, 
-		Template: b.Template
-		};
 
-	console.log('condition', condition);
+    router.get('/users?id', function(req, res) {
+        user.findById(req.params.id).then(function(data) {
+            res.json(data);
+        })
+    });
 
-	user.update(values, condition, function () {
-		res.redirect('/users');
-	});
-});
 
-module.exports = router;
+    router.post('/users', function(req, res) {
+        var r = req.body;
+        user.create({
+                firstName: r.firstName,
+                lastName: r.lastName,
+                email: r.email,
+                password: r.password,
+                description: r.description,
+                linkGitHub: r.linkGitHub
+            })
+            .then(function(data) {
+                res.json(data);
+            })
+    });
+
+    router.post('/users/byusername', function(req, res) {
+        user.findOne({
+            where: {
+                username: req.body.username
+            }
+        }).then(function(user) {
+            res.json(user);
+        });
+    });
+
+
+    router.put('/users/:id', function(req, res) {
+        var r = req.body;
+        user.update({
+                firstName: r.firstName,
+                lastName: r.lastName,
+                email: r.email,
+                password: r.password,
+                description: r.description,
+                linkGitHub: r.linkGitHub
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(data) {
+                res.json(data);
+            })
+    });
+
+    app.use('/api', router);
+}
+//module.exports = router;
