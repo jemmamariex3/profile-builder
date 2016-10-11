@@ -14,6 +14,10 @@ router.get('/mydashboard/:page', function(req,res){
 	res.render(req.params.page);
 });
 
+router.get('/login', function (req, res) {
+	res.render("login");
+});
+
 router.get('/mydashboard2/', function (req, res) {
 	res.render("dashboard");
 });
