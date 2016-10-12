@@ -13,6 +13,7 @@
                 <li class="active">
                     <i class="fa fa-edit"></i> Projects
                 </li>
+                
             </ol>
         </div>
     </div>
@@ -50,7 +51,7 @@
         <h4 class="modal-title">Add Project</h4>
       </div>
       <div class="modal-body">
-        <form role="form" name="addproject" action="/api/projects?userId=1" method="POST">
+        <form role="form" name="addproject" action="/api/projects" method="POST">
             <div class="form-group">
                 <label for="disabledSelect">Name</label>
                 <input class="form-control" type="text" name="name" required="true">
@@ -63,7 +64,7 @@
                 <label for="disabledSelect">Descriptiion</label>
                 <input class="form-control" type="text" name="description" required="true">
             </div>
-            <div class="form-group" action="/api/projects" method="POST">
+            <div class="form-group">
                 <label for="disabledSelect">Link to GitHub</label>
                 <input class="form-control" type="text" name="linkGitHub" required="true">
             </div>
@@ -94,7 +95,7 @@
         
         var table = $('#example').DataTable( {
             "ajax": {
-                url: "/api/projects",
+                url: "/api/projects/{{user.id}}",
                 dataSrc: ''
             },
             

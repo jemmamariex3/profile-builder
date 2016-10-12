@@ -11,6 +11,7 @@
   "dependencies": {
     "bcrypt": "^0.8.7",
     "body-parser": "^1.14.2",
+    "client-sessions": "^0.7.0",
     "datatables.net": "^1.10.12",
     "datatables.net-bs": "^1.10.12",
     "express": "^4.13.3",

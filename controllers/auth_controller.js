@@ -5,6 +5,8 @@ var models = require('../models');
 var project = models.Project;
 var user = models.User;
 
+var session = require('client-sessions');
+
 var sequelizeConnection = models.sequelize;
 
 var bcrypt = require('bcrypt');
@@ -67,7 +69,9 @@ module.exports = function(app) {
                     // if the password is true
                     if (matched === true) {
                         // you can make the site operate as intended for logged in users
-                        res.json({ "Response": "Success. You have logged in." })
+                        req.session.user = userData;
+                        //res.json({ "Response": "Success. You have logged in." })
+                        res.redirect('/mydashboard');
                     } else {
                         // otherwise, you can black access to parts of your site
                         res.json({ "Response": 'Fail. Your passord was rejected' });
@@ -79,8 +83,26 @@ module.exports = function(app) {
         })
     });
 
+
+    router.get('/', function(req, res){
+    	res.redirect("/login")
+    });
+
+  	router.get('/login', function (req, res) {
+  		if(req.user){
+			return res.redirect('/mydashboard');
+		}
+		res.render("login", {layout:"website"});
+	});
+
+	router.get('/logout', function(req, res){
+		req.session.reset();
+		res.redirect('/login');
+	})
+
+
     
-    app.use('/auth', router);
+    app.use('/', router);
 }
 
 
