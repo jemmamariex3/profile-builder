@@ -92,7 +92,7 @@ module.exports = function(app) {
   		if(req.user){
 			return res.redirect('/mydashboard');
 		}
-		res.render("login", {layout:"website"});
+		res.render("login", {layout:"landing"});
 	});
 
 	router.get('/logout', function(req, res){
