@@ -66,11 +66,14 @@ require('./controllers/api/users_controller.js')(app);
 require('./controllers/api/projects_controller.js')(app);
 require('./controllers/auth_controller.js')(app);
 
+require('./controllers/landing_controller.js')(app);
+require('./controllers/portfolio_controller.js')(app);
 
-app.use(function(err, req, res, next) {
-    console.error(err.stack);
-    res.redirect('/mydashboard');
-});
+
+// app.use(function(err, req, res, next) {
+//     console.error(err.stack);
+//     res.redirect('/mydashboard');
+// });
 
 var port = 3000;
 app.listen(port);
