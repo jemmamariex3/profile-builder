@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
 
     //This allows you to route to any named view dynamically assuming that it exists
-    router.get('/:page', function(req, res) {
+    router.get('/:page', requireLogin, function(req, res) {
         res.locals.Title = req.params.page
         res.render('dashboard/' + req.params.page);
     });
