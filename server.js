@@ -62,8 +62,8 @@ app.use(function(req, res, next) {
 
 //require all controllers. Pass 'app' to all controllers and return app.use("/", router)
 require('./controllers/dashboard_controller.js')(app);
-require('./controllers/users_controller.js')(app);
-require('./controllers/projects_controller.js')(app);
+require('./controllers/api/users_controller.js')(app);
+require('./controllers/api/projects_controller.js')(app);
 require('./controllers/auth_controller.js')(app);
 
 

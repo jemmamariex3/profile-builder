@@ -4,7 +4,7 @@ Here is where you create all the functions that will do the routing for your app
 var express = require('express');
 var router = express.Router();
 
-var models = require('../models');
+var models = require('../../models');
 var project = models.Project;
 var User = models.User;
 

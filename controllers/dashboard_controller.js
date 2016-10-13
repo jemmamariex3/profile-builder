@@ -6,7 +6,7 @@ var sequelizeConnection = models.sequelize;
 var session = require('client-sessions');
 
 //Manually adding one user into the database and then adding a project to that user
-var jonathan;
+
 module.exports = function(app) {
 	function requireLogin (req, res, next){
 		if(!req.user){
@@ -17,14 +17,14 @@ module.exports = function(app) {
 	};
 
     router.get('/', requireLogin, function(req, res) {
-        res.render("dashboard", {test: "Jonathan"});
+        res.render("dashboard/dashboard", {test: "Jonathan"});
     });
 
     //This allows you to route to any named view dynamically assuming that it exists
     router.get('/:page', function(req, res) {
-        res.render(req.params.page);
+        res.locals.Title = req.params.page
+        res.render('dashboard/' + req.params.page);
     });
 
     app.use('/mydashboard', router);
 }
-//module.exports = router;
