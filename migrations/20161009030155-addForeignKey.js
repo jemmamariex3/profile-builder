@@ -17,6 +17,9 @@ module.exports = {
     },
 
     down: function(queryInterface, Sequelize) {
-        queryInterface.removeColumn('Projects', 'UserId');
+        queryInterface.sequelize.query('ALTER TABLE Projects DROP FOREIGN KEY UserId_foreign_idx');
+        queryInterface.sequelize.query('ALTER TABLE Projects DROP COLUMN UserId');
+        return;
+        
     }
 };
