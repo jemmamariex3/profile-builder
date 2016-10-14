@@ -13,7 +13,7 @@ module.exports = {
                 linkGitHub: "github.com",
                 username: "jarellano"
             }, {
-                firstName: "Jema",
+                firstName: "Jemma",
                 lastName: "Tiongson",
                 email: "jtiongson@gmail.com",
                 password: "$2a$10$kUBvM0Czt0SSP9H1glH9lu49wwtvtfxLDeH0q93Z66Tbiirvxcnsq",

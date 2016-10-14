@@ -50,7 +50,6 @@ app.use(function(req, res, next) {
                 delete req.user.password;
                 req.session.user = userData;
                 res.locals.user = userData;
-                //console.log(res.locals.user);
             }
             next();
         });
@@ -75,5 +74,5 @@ require('./controllers/portfolio_controller.js')(app);
 //     res.redirect('/mydashboard');
 // });
 
-var port = 3000;
+var port =  process.env.PORT || 3000;
 app.listen(port);
