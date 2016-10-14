@@ -10,7 +10,7 @@ var session = require('client-sessions');
 
 module.exports = function(app) {
     router.get('/samplePortfolio', function(req, res){
-        res.render("portfolio/sample", {layout:"samplePortfolio"});
+        res.render("portfolio/sample", {layout:"sampleportfolio"});
     })
 
     function renderPage(res, username, page){

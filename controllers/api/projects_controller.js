@@ -36,7 +36,7 @@ module.exports = function(app) {
             res.json(data);
         })
 
-    });
+    }); // use this on the front end and will give projects for specific user.
 
 
     router.post('/projects', function(req, res) {
