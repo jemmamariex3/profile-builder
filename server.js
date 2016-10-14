@@ -50,7 +50,6 @@ app.use(function(req, res, next) {
                 delete req.user.password;
                 req.session.user = userData;
                 res.locals.user = userData;
-                //console.log(res.locals.user);
             }
             next();
         });
