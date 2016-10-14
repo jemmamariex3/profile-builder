@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/sample.css">
+</head>
+
+<body>
+    <div class="portfolio-img" style="background-image:url(img/sample-img.jpg);"></div>
+    <div class="transparency-layer"></div>
+    <div class="container-fluid">
+        <div class='toggle-button'>
+            <span><i class="fa fa-bars fa-2x" id="hide"></i></span>
+        </div>
+        <div class="hidden-nav" style="display: none;">
+            <a href="#"><h2>ABOUT ME</h2></a>
+            <a href="#"><h2>PORTFOLIO</h2></a>
+            <a href="#"><h2>CONTACT</h2></a>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 no-float main-content">
+                <div class="row name">
+                    <div class="col-xs-12">
+                        <h1>Frank Sinatra</h1>
+                    </div>
+                </div>
+                {{{body}}}
+                <div class="row section-block social-block">
+                    <h4 class="pre">Find Me on Social Media</h4>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="//github.com" target="_blank"><span><i class="fa fa-github fa-2x" id="hide"></i></span><h4>GitHub </h4></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="" target="_blank"><span><i class="fa fa-linkedin fa-2x" id="hide"></i></span><h4>LinkedIn</h4></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="" target="_blank"><span><i class="fa fa-facebook fa-2x" id="hide"></i></span><h4>Facebook</h4></a>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="" target="_blank"><span><i class="fa fa-twitter-square fa-2x" id="hide"></i></span><h4>Twitter</h4></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr></hr>
+        <div class="row footer">
+            <div class="col-sm-12">
+                <div class="row name">
+                    <div class="col-xs-12">
+                        <p>Powered by DevPoint</p>
+                        <p>All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("#hide").click(function() {
+            $(".hidden-nav").fadeToggle();
+        })
+    })
+    </script>
+    {{{_sections.script}}}
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+
+</html>
