@@ -126,4 +126,8 @@ header {
         height: 100%;
         width: 100%;
     }
+    .container-fluid{
+        padding-right: 10%;
+        padding-left: 10%;
+    }
 }
