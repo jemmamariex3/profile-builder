@@ -26,16 +26,15 @@
 {{#section 'script'}}
 <script type="text/javascript">
 $(function() {
-            $('form[name=update-user]').submit(function() {
-                $.post($(this).attr('action'), $(this).serialize(), function(res) {
-                    console.log(res);
-                    location.reload();
-                });
-
-                return false; // prevent default action
-            });
+    $('form[name=update-user]').submit(function() {
+        $.post($(this).attr('action'), $(this).serialize(), function(res) {
+            console.log(res);
+            location.reload();
         });
-</script>
 
+        return false; // prevent default action
+    });
+});
+</script>
 {{/section}}
 <!-- /.container-fluid -->
