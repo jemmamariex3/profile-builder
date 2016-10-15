@@ -65,6 +65,7 @@ require('./controllers/dashboard_controller.js')(app);
 require('./controllers/users_controller.js')(app);
 require('./controllers/projects_controller.js')(app);
 require('./controllers/auth_controller.js')(app);
+require('./controllers/landing_controller.js')(app);
 
 
 app.use(function(err, req, res, next) {
