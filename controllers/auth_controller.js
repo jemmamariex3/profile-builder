@@ -83,16 +83,11 @@ module.exports = function(app) {
         })
     });
 
-
-    router.get('/', function(req, res){
-    	res.redirect("/login")
-    });
-
   	router.get('/login', function (req, res) {
   		if(req.user){
 			return res.redirect('/mydashboard');
 		}
-		res.render("login", {layout:"landing"});
+		res.render("landing/login", {layout:false});
 	});
 
 	router.get('/logout', function(req, res){

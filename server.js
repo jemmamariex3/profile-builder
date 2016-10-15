@@ -50,7 +50,6 @@ app.use(function(req, res, next) {
                 delete req.user.password;
                 req.session.user = userData;
                 res.locals.user = userData;
-                //console.log(res.locals.user);
             }
             next();
         });
@@ -62,16 +61,19 @@ app.use(function(req, res, next) {
 
 //require all controllers. Pass 'app' to all controllers and return app.use("/", router)
 require('./controllers/dashboard_controller.js')(app);
-require('./controllers/users_controller.js')(app);
-require('./controllers/projects_controller.js')(app);
+require('./controllers/api/users_controller.js')(app);
+require('./controllers/api/projects_controller.js')(app);
 require('./controllers/auth_controller.js')(app);
 require('./controllers/landing_controller.js')(app);
 
+require('./controllers/landing_controller.js')(app);
+require('./controllers/portfolio_controller.js')(app);
 
-app.use(function(err, req, res, next) {
-    console.error(err.stack);
-    res.redirect('/mydashboard');
-});
 
-var port = 3000;
+// app.use(function(err, req, res, next) {
+//     console.error(err.stack);
+//     res.redirect('/mydashboard');
+// });
+
+var port =  process.env.PORT || 3000;
 app.listen(port);
