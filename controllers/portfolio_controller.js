@@ -20,7 +20,7 @@ module.exports = function(app) {
             }
         }).then(function(data) {
             res.locals.user = data;
-            res.render(page, { layout: "portfolio"});
+            res.render(page, { layout: "sampleportfolio"});
         });
     };
 
