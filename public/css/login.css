@@ -8,6 +8,9 @@
     padding: 40px;
 
 }
+.container-bg {
+	margin-top: 100px;
+}
 .panel {
 	border-radius: 20px;
 	font-family: avenir;
@@ -20,12 +23,13 @@
 	font-family: avenir;
 	/*margin-left: 35px;*/
 	font-size: 25px;
+	text-align: center;
 }
 .profile-title2 {
 	font-family: avenir;
+	text-align: center;
 	/*margin-left: 35px;*/
 }
-html {
+body {
 	background: url("/img/bg.jpeg") no-repeat center center fixed ;
 }
-

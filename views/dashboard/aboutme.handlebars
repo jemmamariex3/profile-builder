@@ -1,4 +1,9 @@
 <form role="form" name="update-user" action="/api/users/{{user.id}}?_method=PUT" method="POST">
+    {{!-- <div class="form-group col-sm-12 col-md-offset">
+        <img src="{{user.photo}}">
+        <label for="disabledSelect">About Me - Photo Input</label>
+        <input class="form-control-file" type="file" name="photo" required="true">
+    </div> --}}
     <div class="form-group col-sm-6">
         <label for="disabledSelect">First Name</label>
         <input class="form-control" type="text" name="firstName" required="true" value="{{user.firstName}}">
@@ -14,6 +19,22 @@
     <div class="form-group col-sm-6">
         <label for="disabledSelect">GitHub Profile</label>
         <input class="form-control" type="text" name="linkGitHub" value="{{user.linkGitHub}}">
+    </div>
+     <div class="form-group col-sm-6">
+        <label for="disabledSelect">Facebook</label>
+        <input class="form-control" type="text" name="linkFacebook" value="{{user.linkFacebook}}">
+    </div>
+     <div class="form-group col-sm-6">
+        <label for="disabledSelect">Twitter</label>
+        <input class="form-control" type="text" name="linkTwitter" value="{{user.linkTwitter}}">
+    </div>
+     <div class="form-group col-sm-6">
+        <label for="disabledSelect">Stack Overflow</label>
+        <input class="form-control" type="text" name="linkStack" value="{{user.linkStack}}">
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="disabledSelect">LinkedIn</label>
+        <input class="form-control" type="text" name="linkLinkedIn" value="{{user.linkLinkedIn}}">
     </div>
     <div class="form-group col-sm-12">
         <label for="disabledSelect">Description</label>
