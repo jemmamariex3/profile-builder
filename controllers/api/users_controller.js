@@ -60,7 +60,11 @@ module.exports = function(app) {
                 email: r.email,
                 password: r.password,
                 description: r.description,
-                linkGitHub: r.linkGitHub
+                linkGitHub: r.linkGitHub,
+                linkFacebook: r.linkFacebook,
+                linkStack: r.linkStack,
+                linkTwitter: r.linkTwitter,
+                linkLinkedIn: r.linkLinkedIn
             }, {
                 where: {
                     id: req.params.id

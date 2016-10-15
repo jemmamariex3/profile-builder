@@ -9,26 +9,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/sample.css">
+    <link rel="stylesheet" type="text/css" href="/css/sample.css">
 </head>
 
 <body>
-    <div class="portfolio-img" style="background-image:url(img/sample-img.jpg);"></div>
+    <div class="portfolio-img" style="background-image:url(/img/sample-img.jpg);"></div>
     <div class="transparency-layer"></div>
     <div class="container-fluid">
         <div class='toggle-button'>
             <span><i class="fa fa-bars fa-2x" id="hide"></i></span>
         </div>
         <div class="hidden-nav" style="display: none;">
-            <a href="#"><h2>ABOUT ME</h2></a>
-            <a href="#"><h2>PORTFOLIO</h2></a>
-            <a href="#"><h2>CONTACT</h2></a>
+            <a href="/{{user.username}}/about"><h2>ABOUT ME</h2></a>
+            <a href="/{{user.username}}/portfolio"><h2>PORTFOLIO</h2></a>
+            <a href="/{{user.username}}/contact"><h2>CONTACT</h2></a>
         </div>
         <div class="row">
             <div class="col-sm-12 no-float main-content">
                 <div class="row name">
                     <div class="col-xs-12">
-                        <h1>Frank Sinatra</h1>
+                        <h1>{{user.firstName}} {{user.lastName}}</h1>
                     </div>
                 </div>
                 {{{body}}}

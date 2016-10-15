@@ -83,6 +83,52 @@ module.exports = function(app) {
         })
     });
 
+//Reset password function
+router.post('/reset-password', function(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+    //New Pass word Variable 
+    var newPassword = req.body.newPassword;
+    var newPasswordConfirm = req.body.newPasswordConfirm;
+
+    if (newPassword != newPasswordConfirm) {
+        res.json({ "Response": "Password does not match, Please try again!" });
+    }
+
+    findByUsername(username, function(exists, userData) {
+        if (exists) {
+            bcrypt.compare(password, userData.password, function(err, matched) {
+                // if the password is true
+                if (matched === true) {
+
+                    bcrypt.genSalt(10, function(err, salt) {
+                        // once the salt is made, hash the password with that salt
+                        bcrypt.hash(newPassword, salt, function(err, hash) {
+
+                            user.update({
+                                    password: hash
+                                })
+                                .then(function(data) {
+                                    res.redirect('/mydashboard');
+                                });
+                        });
+                    });
+                    // you can make the site operate as intended for logged in users
+                    //req.session.user = userData;
+                    //res.json({ "Response": "Success. You have logged in." })
+                    res.redirect('/mydashboard');
+                } else {
+                    // otherwise, you can black access to parts of your site
+                    res.json({ "Response": 'Fail. Your password was rejected' });
+                }
+            });
+        } else {
+            res.json({ "Response": "Username not found in the system" });
+        }
+    })
+});
+
+
   	router.get('/login', function (req, res) {
   		if(req.user){
 			return res.redirect('/mydashboard');
