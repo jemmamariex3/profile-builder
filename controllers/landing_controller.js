@@ -9,7 +9,7 @@ var session = require('client-sessions');
 
 module.exports = function(app) {
 	router.get('/', function(req, res) {
-        res.render('landing/index', {layout:"landing"});
+        res.render('landing_page/landing.handlebars', {layout:"landing"});
     });
 
     app.use('/', router);
