@@ -1,0 +1,29 @@
+<form role="form" name="addproject" action="/api/projects" method="POST">
+    <div class="form-group col-sm-6">
+        <label for="disabledSelect">First Name</label>
+        <input class="form-control" type="text" name="firstName" required="true" value="{{user.firstName}}">
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="disabledSelect">Last Name</label>
+        <input class="form-control" type="text" name="lastName" required="true" value="{{user.lastName}}">
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="disabledSelect">Email</label>
+        <input class="form-control" type="text" name="email" value="{{user.email}}">
+    </div>
+    <div class="form-group col-sm-6">
+        <label for="disabledSelect">GitHub Profile</label>
+        <input class="form-control" type="text" name="linkGitHub"value="{{user.linkGitHub}}">
+    </div>
+    <div class="form-group col-sm-12">
+        <label for="disabledSelect">Description</label>
+        <textarea name="description" id="inputDesc" class="form-control" rows="3" required="required">{{description}}</textarea>
+    </div>
+    <div class="form-group col-sm-12">
+        <button type="submit" class="btn btn-primary pull-right">Update</button>
+    </div>
+</form>
+{{#section 'script'}} 
+
+{{/section}}
+<!-- /.container-fluid -->

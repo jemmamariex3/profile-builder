@@ -1,0 +1,16 @@
+var express = require('express');
+var router = express.Router();
+var user = require('../models/user.js');
+var models = require('../models');
+var sequelizeConnection = models.sequelize;
+var session = require('client-sessions');
+
+//Manually adding one user into the database and then adding a project to that user
+
+module.exports = function(app) {
+	router.get('/', function(req, res) {
+        res.render('landing/index', {layout:"landing"});
+    });
+
+    app.use('/', router);
+}

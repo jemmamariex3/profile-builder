@@ -1,0 +1,45 @@
+form input[type="text"], form input[type="email"], form input[type="password"], form input[type="number"] {
+    height: 44px;
+    padding-left: 50px;
+}
+form input.no-icon {
+    padding-left: 8px;
+}
+@media(max-width:600px) {
+    form input[type="text"], form input[type="email"], form input[type="password"], form input[type="number"] 
+    {
+    font-size: 16px;
+    }
+}
+form .input-icon.icon-password {
+    background: url("/assets/img/icon-password.png");
+    background-repeat: repeat;
+}
+body {
+    background-color: white;
+}
+.page-wrap {
+    height: 100%;
+    margin-top: 20%;
+}
+.content {
+    margin-left: 35%;
+    margin-top: 20%;
+}
+.btn-block {
+    width: 55%;
+}
+.form-control {
+    width: 55%;
+    height: 50px
+}
+form {
+    width: 55%;
+}
+.profile-title {
+   font-size: 25px;
+}
+panel {
+    width: 50%;
+}
+
