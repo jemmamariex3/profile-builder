@@ -10,6 +10,9 @@ var session = require('client-sessions');
 var sequelizeConnection = models.sequelize;
 
 var bcrypt = require('bcrypt');
+
+
+//=======================****************==============================================================
 //function to find user by username. cb(exists, data)  is returned. Exists will be true or false
 module.exports = function(app) {
     function findByUsername(username, cb) {
@@ -27,6 +30,8 @@ module.exports = function(app) {
         })
     };
 
+    //=======================****************==============================================================
+    //Router function for the initial user registration
     router.post('/register', function(req, res) {
         var username = req.body.username;
         var password = req.body.password;
@@ -60,7 +65,8 @@ module.exports = function(app) {
     });
 
 
-
+    //=======================****************==============================================================
+    //Router function for the login logic
     router.post('/login', function(req, res) {
         var username = req.body.username;
         var password = req.body.password;
@@ -85,7 +91,8 @@ module.exports = function(app) {
         })
     });
 
-    //Reset password function
+    //=======================****************==============================================================
+    //Router function for the Reset password 
     router.post('/reset-password', function(req, res) {
         var username = req.body.username;
         var password = req.body.password;
@@ -93,13 +100,12 @@ module.exports = function(app) {
         var newPassword = req.body.newPassword;
         var newPasswordConfirm = req.body.newPasswordConfirm;
 
-        req.session.user = userData;
-
+        
         if (newPassword != newPasswordConfirm) {
             res.json({ "Response": "Password does not match, Please try again!" });
         }
 
-        findByUsername(username, function(exists, userData) {
+        findByUsername(req.session.user.id, function(exists, userData) {
             if (exists) {
                 bcrypt.compare(password, userData.password, function(err, matched) {
                     // if the password is true
@@ -132,6 +138,7 @@ module.exports = function(app) {
         })
     });
 
+    //=======================****************==============================================================
     //Router for the login 
     router.get('/login', function(req, res) {
         if (req.user) {
@@ -140,12 +147,14 @@ module.exports = function(app) {
         res.render("landing/login", { layout: false });
     });
 
+    //=======================****************==============================================================
     //Router for the Logout 
     router.get('/logout', function(req, res) {
         req.session.reset();
         res.redirect('/login');
     })
 
+    //=======================****************==============================================================
     //Router for the Reset Password 
     router.get('/reset-password', function(req, res) {
         // if(req.user){
@@ -153,6 +162,8 @@ module.exports = function(app) {
         // }
         res.render("reset-password", { layout: false });
     });
+
+    //=======================****************==============================================================
     //Router for the Sign Up 
     router.get('/signup', function(req, res) {
         // if(req.user){

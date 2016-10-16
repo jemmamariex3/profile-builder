@@ -27,6 +27,7 @@ module.exports = function(app) {
     //     })
     // });
 
+    //=======================****************==============================================================
     router.get('/projects/:userId', function(req, res) {
         project.findAll({
             where: {
@@ -38,7 +39,7 @@ module.exports = function(app) {
 
     }); // use this on the front end and will give projects for specific user.
 
-
+    //=======================****************==============================================================
     router.post('/projects', function(req, res) {
         var r = req.body;
 
@@ -63,6 +64,7 @@ module.exports = function(app) {
         })
     });
 
+    //=======================****************==============================================================
     router.put('/projects/:id', function(req, res) {
         var r = req.body;
         project.update({

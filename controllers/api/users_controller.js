@@ -18,14 +18,14 @@ module.exports = function(app) {
 
 
 
-
+    //=======================****************==============================================================
     router.get('/users?id', function(req, res) {
         user.findById(req.params.id).then(function(data) {
             res.json(data);
         })
     });
 
-
+    //=======================****************==============================================================
     router.post('/users', function(req, res) {
         var r = req.body;
         user.create({
@@ -41,6 +41,7 @@ module.exports = function(app) {
             })
     });
 
+    //=======================****************==============================================================
     router.post('/users/byusername', function(req, res) {
         user.findOne({
             where: {
@@ -51,7 +52,7 @@ module.exports = function(app) {
         });
     });
 
-
+    //=======================****************==============================================================
     router.put('/users/:id', function(req, res) {
         var r = req.body;
         user.update({
