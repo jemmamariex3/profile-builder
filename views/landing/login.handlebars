@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-type" />
-    <title> Profile Builder | Login </title>
+    <title> Dev Point | Login </title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Log in to your Profile Builder account from this secure Profile Builder login page." name="description" />
+    <meta content="Log in to your Dev Point account from this secure Dev Point login page." name="description" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/login.css" rel="stylesheet">
@@ -13,42 +14,54 @@
 </head>
 
 <body>
+    <div class="container-bg">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="profile-title">Welcome to Dev Point</h3>
+                        <h3 class="profile-title2">Log in to your account</h3>
+                        <br>
 
-<div class="container-bg">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <a href="#" title="Profile" class="profile-title">Profile Builder</a>
+                        <form action="/login" method="post" role="form">
+                            <input name="_csrf" type="hidden" value="" />
 
-            <h3 class="profile-title2">Log in to your account</h3>
-            <br>
+                            <div class="form-group">
+                                <label for="email">Username </label>
+                                <div class="input-icon icon-username">
+                                </div>
+                                <input autofocus="true" class="form-control" id="<email>   </email>" name="username" placeholder="Username" tabindex="1" type="text" />
+                            </div>
 
-            <form action="/login" method="post" role="form">
-                <input name="_csrf" type="hidden" value="sx9ZPdNygA+XwMdcQB71uzzoXHo1bdNs2QH2c8Xd5hY=" />
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <div class="input-icon icon-username">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="input-icon icon-password"></div>
+                                <input autocomplete="off" class="form-control password" id="password" name="password" placeholder="Password" tabindex="2" type="password" />
+                            </div>
+                            <a href="reset-password" class="rp" style="margin-left: 15px">Reset Password</a>
+                            <br>
+                            <br>
+                            <button class="btn btn-primary btn-lg btn-block" name="commit" tabindex="3" type="submit" value="Log In">Log In</button>
+                        </form>
+                        <br>
+
+                        <div class="divider">
+                            <hr class="left" />
+                                <span>or</span>
+                            <hr class="right" />
+                        </div>
+                        <br>
+
+                        <label for="title" class="title_dont">Dont have an Account?</label>
+                        <br>
+                        <br>
+                        <form action="/signup">
+                            <button class="btn btn-primary btn-lg btn-block" namesignup " tabindex="3 " type="submit " value="Sign Up">Sign Up</button>
+                        </form> 
+
                     </div>
-                    <input autofocus="true" class="form-control" id="email" name="username" placeholder="Email address" tabindex="1" type="text" />
                 </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-icon icon-password"></div>
-                    <input autocomplete="off" class="form-control password" id="password" name="password" placeholder="Password" tabindex="2" type="password" />
-                </div>
-
-                <button class="btn btn-primary btn-lg btn-block" name="commit" tabindex="3" type="submit" value="Log In">Log In</button>
-            </form>
-            <br>
-
-            <div class="login-footer">
-                <a href="/signup/login">New to Profile Builder? &nbsp;<span>Sign Up &nbsp;&nbsp;&nbsp;</span></a><br>
-                <a href="/account/password/reset" style="margin-left: 15px">Forgot your password?</a>
             </div>
-        </div>
-    </div>
-</div>
-
 </body>
 
 </html>

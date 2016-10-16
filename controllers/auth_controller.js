@@ -26,7 +26,7 @@ module.exports = function(app) {
 
         })
     };
-    
+
     router.post('/register', function(req, res) {
         var username = req.body.username;
         var password = req.body.password;
@@ -49,7 +49,9 @@ module.exports = function(app) {
                                 username: r.username
                             })
                             .then(function(data) {
-                                res.redirect('/api/users');
+                                // res.redirect('/api/users');
+                                //If user passes it will take them to login page. 
+                                res.redirect('/login');
                             });
                     });
                 });
@@ -83,66 +85,84 @@ module.exports = function(app) {
         })
     });
 
-//Reset password function
-router.post('/reset-password', function(req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    //New Pass word Variable 
-    var newPassword = req.body.newPassword;
-    var newPasswordConfirm = req.body.newPasswordConfirm;
+    //Reset password function
+    router.post('/reset-password', function(req, res) {
+        var username = req.body.username;
+        var password = req.body.password;
+        //New Pass word Variable 
+        var newPassword = req.body.newPassword;
+        var newPasswordConfirm = req.body.newPasswordConfirm;
 
-    if (newPassword != newPasswordConfirm) {
-        res.json({ "Response": "Password does not match, Please try again!" });
-    }
+        req.session.user = userData;
 
-    findByUsername(username, function(exists, userData) {
-        if (exists) {
-            bcrypt.compare(password, userData.password, function(err, matched) {
-                // if the password is true
-                if (matched === true) {
-
-                    bcrypt.genSalt(10, function(err, salt) {
-                        // once the salt is made, hash the password with that salt
-                        bcrypt.hash(newPassword, salt, function(err, hash) {
-
-                            user.update({
-                                    password: hash
-                                })
-                                .then(function(data) {
-                                    res.redirect('/mydashboard');
-                                });
-                        });
-                    });
-                    // you can make the site operate as intended for logged in users
-                    //req.session.user = userData;
-                    //res.json({ "Response": "Success. You have logged in." })
-                    res.redirect('/mydashboard');
-                } else {
-                    // otherwise, you can black access to parts of your site
-                    res.json({ "Response": 'Fail. Your password was rejected' });
-                }
-            });
-        } else {
-            res.json({ "Response": "Username not found in the system" });
+        if (newPassword != newPasswordConfirm) {
+            res.json({ "Response": "Password does not match, Please try again!" });
         }
+
+        findByUsername(username, function(exists, userData) {
+            if (exists) {
+                bcrypt.compare(password, userData.password, function(err, matched) {
+                    // if the password is true
+                    if (matched === true) {
+
+                        bcrypt.genSalt(10, function(err, salt) {
+                            // once the salt is made, hash the password with that salt
+                            bcrypt.hash(newPassword, salt, function(err, hash) {
+
+                                user.update({
+                                        password: hash
+                                    })
+                                    .then(function(data) {
+                                        res.redirect('/mydashboard');
+                                    });
+                            });
+                        });
+                        // you can make the site operate as intended for logged in users
+                        //req.session.user = userData;
+                        //res.json({ "Response": "Success. You have logged in." })
+                        res.redirect('/mydashboard');
+                    } else {
+                        // otherwise, you can black access to parts of your site
+                        res.json({ "Response": 'Fail. Your password was rejected' });
+                    }
+                });
+            } else {
+                res.json({ "Response": "Username not found in the system" });
+            }
+        })
+    });
+
+    //Router for the login 
+    router.get('/login', function(req, res) {
+        if (req.user) {
+            return res.redirect('/mydashboard');
+        }
+        res.render("landing/login", { layout: false });
+    });
+
+    //Router for the Logout 
+    router.get('/logout', function(req, res) {
+        req.session.reset();
+        res.redirect('/login');
     })
-});
+
+    //Router for the Reset Password 
+    router.get('/reset-password', function(req, res) {
+        // if(req.user){
+        //     return res.redirect('/reset-password');
+        // }
+        res.render("reset-password", { layout: false });
+    });
+    //Router for the Sign Up 
+    router.get('/signup', function(req, res) {
+        // if(req.user){
+        //     return res.redirect('/reset-password');
+        // }
+        res.render('landing/signup', { layout: false });
+    });
 
 
-  	router.get('/login', function (req, res) {
-  		if(req.user){
-			return res.redirect('/mydashboard');
-		}
-		res.render("landing/login", {layout:false});
-	});
 
-	router.get('/logout', function(req, res){
-		req.session.reset();
-		res.redirect('/login');
-	})
-
-
-    
     app.use('/', router);
 }
 
