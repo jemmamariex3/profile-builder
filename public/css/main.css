@@ -134,7 +134,7 @@ main {
 	left: 0;
 }
 /* Slide 1 */
-.bcg {background-image:url('../img/bg3.jpeg');}
+.bcg {background-image:url('../img/bg.jpeg');}
 
 /* Slide 2 */
 #slide-2 .bcg {background-image:url('../img/bg2.jpeg');}
@@ -147,7 +147,7 @@ main {
 	-moz-transition: none;
 	transition: none;	
 }
-#slide-3 .bcg {background-image:url('../img/bg.jpeg');}
+#slide-3 .bcg {background-image:url('../img/bg6.jpeg');}
 #slide-3 h2  {color: #ffffff;}
 #slide-3 p {color: #b2b2b2;}
 
