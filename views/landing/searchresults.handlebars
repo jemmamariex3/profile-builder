@@ -13,7 +13,7 @@
 
 <body>
     <nav class="navbar navbar-inverse">
-        <div class="row">
+        <div class="row" id='testing'>
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#"><h4>DP</h4></a>
@@ -34,8 +34,10 @@
                     <tr>
                        
                         <th>Username</th>
-                        <th>Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
+                        <th></th>
                     </tr>
                 </thead>
             </table>
@@ -69,10 +71,20 @@
         }, {
             "data": "firstName"
         }, {
+            "data": "lastName"
+        }, {
             "data": "email"
         }]
-    });
 
+    
+
+    });
+console.log(table);
+$("tbody").on('click', "td",function (){
+      // console.log($(this).text());
+    window.location.href = "/" + $(this).text 
+// how do you do a get request to a route
+     });
 
 });
 
