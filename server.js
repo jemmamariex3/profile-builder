@@ -36,8 +36,8 @@ app.set('view engine', 'handlebars');
 app.use(session({
     cookieName: 'session',
     secret: 'random_string_goes_here',
-    duration: 30 * 60 * 1000,
-    activeDuration: 5 * 60 * 1000
+    duration: 60 * 60 * 1000,
+    activeDuration: 60 * 60 * 1000
 }))
 
 app.use(function(req, res, next) {
