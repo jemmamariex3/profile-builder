@@ -3,7 +3,6 @@ h3 {
 	font-family: avenir;
 	font-weight: lighter;
 }
-
 .login_icon {
 	float: right;
 	margin-left: 35px;
@@ -14,6 +13,9 @@ h3 {
 .panel-heading-title {
 	margin-top: 25px;
 }
+.panel-heading-title-2 {
+	/*font-family: 'Metal Mania', cursive;*/
+}
 @media (max-width: 750px) {
     .panel-heading-title-2 {
         font-size: 15px;
@@ -22,7 +24,6 @@ h3 {
     	font-size: 15px;
     }
   }
-
  .panel-footer {
  	font-size: 10px;
  	position:fixed;
@@ -36,7 +37,6 @@ h3 {
    	font-size: 12px;
    	font-weight: lighter;
  }
-
  .navbar-default .navbar-brand {
  	color: white;
  	font-family: avenir;
@@ -47,13 +47,23 @@ h3 {
 .navbar-default .navbar-toggle .icon-bar {
     background-color: white;
 }
-@media (max-width: 767px)
+@media (max-width: 767px){
 .navbar-default .navbar-nav .open .dropdown-menu>li>a {
     color: white;
+	}
 }
 *.a {
 	color: white;
 }
 .li {
 	color: white;
+}
+#message {
+	font-weight: bold;
+	font-family: avenir;
+	color: red;
+	font-size: 20px;
+}
+.btn-primary {
+	margin-top: 10px;
 }

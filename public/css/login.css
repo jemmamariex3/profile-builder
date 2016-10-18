@@ -33,7 +33,11 @@
 	/*margin-left: 35px;*/
 }
 body {
-	background: url("/img/bg.jpeg") no-repeat center center fixed ;
+	background: url("/img/bg7.jpeg") no-repeat center center fixed ;
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+  	-o-background-size: cover;
+ 	background-size: cover;
 }
 .divider {
     width:100%;
@@ -56,4 +60,10 @@ span {
 }
 .title_dont {
 	text-align: center;
+}
+#message {
+	font-weight: bold;
+	font-family: avenir;
+	color: red;
+	font-size: 15px;
 }

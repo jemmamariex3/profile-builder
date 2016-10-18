@@ -23,28 +23,31 @@
                         <h3 class="profile-title2">Log in to your account</h3>
                         <br>
 
-                        <form action="/login" method="post" role="form">
+                        <form action="/login" method="post" role="form" name="login-form">
                             <input name="_csrf" type="hidden" value="" />
 
                             <div class="form-group">
-                                <label for="email">Username </label>
+                                <label for="username">Username </label>
                                 <div class="input-icon icon-username">
                                 </div>
-                                <input autofocus="true" class="form-control" id="<email>   </email>" name="username" placeholder="Username" tabindex="1" type="text" />
+                                <input autofocus="true" class="form-control" id="username" name="username" placeholder="Username" tabindex="1" type="text" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <div class="input-icon icon-password"></div>
-                                <input autocomplete="off" class="form-control password" id="password" name="password" placeholder="Password" tabindex="2" type="password" />
+                                <input autocomplete="off" class="form-control password" id="password" name="password" placeholder="Password" tabindex="2" type="password" required >
                             </div>
-                            <a href="reset-password" class="rp" style="margin-left: 15px">Reset Password</a>
-                            <br>
-                            <br>
+
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2" id="message-alert" style="text-align: center">
+                                 <span id="message"><br></span>
+                            </div>
+                            <!-- <a href="reset-password" class="rp" style="margin-left: 15px">Reset Password</a> -->
+                        
+
                             <button class="btn btn-primary btn-lg btn-block" name="commit" tabindex="3" type="submit" value="Log In">Log In</button>
                         </form>
-                        <br>
-
+                        
                         <div class="divider">
                             <hr class="left" />
                                 <span>or</span>
@@ -62,6 +65,25 @@
                     </div>
                 </div>
             </div>
+    <script>
+    $(function() {
+        $('form[name=login-form]').submit(function() {
+            $.post($(this).attr('action'), $(this).serialize(), function(res) {
+                console.log(res.response);
+                if ( res.response) {
+                    window.location.href = "/login";
+                }
+                $("#message").text(res.message);
+                location.reload();
+            });
+            // alert("User Name already Taken");
+            return false; // prevent default action
+        });
+    });
+    </script>
+
+
+
 </body>
 
 </html>
