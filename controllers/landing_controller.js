@@ -12,5 +12,9 @@ module.exports = function(app) {
         res.render('landing_page/landing.handlebars', {layout:"landing"});
     });
 
+    router.get('/searchresults', function(req, res) {
+        res.render('landing/searchresults.handlebars', {layout:false});
+    });
+
     app.use('/', router);
 }
