@@ -46,13 +46,16 @@
 </form>
 {{#section 'script'}}
 <script type="text/javascript">
+$(document).ready(function(){
+    $('#active2').addClass('active');
+    // event.preventDefault();
+});
 $(function() {
     $('form[name=update-user]').submit(function() {
         $.post($(this).attr('action'), $(this).serialize(), function(res) {
             console.log(res);
             location.reload();
         });
-
         return false; // prevent default action
     });
 });

@@ -32,6 +32,10 @@
 </div>
 {{#section 'script'}}
 <script type="text/javascript">
+$(document).ready(function(){
+    $('#active4').addClass('active');
+    // event.preventDefault();
+});
 $(function() {
     $('form[name=addproject]').submit(function() {
         $("#modal-add-project").modal('toggle');
