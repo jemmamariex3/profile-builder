@@ -40,6 +40,20 @@
 				font-family: 'Open Sans', sans-serif;
 				font-weight: normal;
 			}
+			.Aligner {
+  			display: flex;
+  			align-items: center;
+  			justify-content: center;
+			}
+			.Aligner-item {
+ 			max-width: 50%;
+			}
+			.Aligner-item--top {
+ 			 align-self: flex-start;
+			}
+			.Aligner-item--bottom {
+ 			 align-self: flex-end;
+			}
 			.entry-header .inner {
 				text-align: left;
 				margin: 0 auto 20px auto;
@@ -106,12 +120,18 @@
 	    		<div class="plaxEl" data-top="opacity: 0; position: fixed; top: 206px; width: 100%; left: 0;" data-center="opacity: 0;" data-bottom="opacity: 1;" data-anchor-target="#slide-3">
 
 		    		<h2>Join Millions of Engineers<br />Start Your Career Off Right</h2>
-					<p>Sign Up Now!<br /><br /></p>
+					<p><br /><br /></p>
 					<p></p>
 					
-					<div class="socialLinks">
-						<div class="fb-like" data-href="#" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
-					</div>
+					<div class="Aligner">
+ 						 <div class="Aligner-item Aligner-item--top"></div>
+ 						 <div class="Aligner-item">
+    						<form action="/signup">
+								<button type="submit" class="btn btn-warning" style='margin-top: 20px; margin-right: 20px;'>Sign Up Now!</button>
+    						</form>
+ 						 </div>
+  					<div class="Aligner-item Aligner-item--bottom"></div>
+					</div> 
 					
 	    		</div>
 		    </section>
