@@ -63,6 +63,7 @@ app.use(function(req, res, next) {
 require('./controllers/dashboard_controller.js')(app);
 require('./controllers/api/users_controller.js')(app);
 require('./controllers/api/projects_controller.js')(app);
+require('./controllers/api/messages_controller.js')(app);
 require('./controllers/auth_controller.js')(app);
 require('./controllers/landing_controller.js')(app);  
 require('./controllers/portfolio_controller.js')(app);
