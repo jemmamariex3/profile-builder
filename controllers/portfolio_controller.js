@@ -3,6 +3,7 @@ var router = express.Router();
 //var user = require('../models/user.js');
 var models = require('../models');
 var user = models.User;
+var project = models.Projects;
 var sequelizeConnection = models.sequelize;
 var session = require('client-sessions');
 
