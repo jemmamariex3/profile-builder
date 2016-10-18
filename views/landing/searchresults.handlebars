@@ -29,59 +29,15 @@
     </nav>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-4 col-md-4 col-lg-8 col-lg-offset-2">
-            <table class="table table-striped table-hover ">
+            <table class="table table-striped table-hover " id='example' >
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>User ID</th>
+                       
+                        <th>Username</th>
                         <th>Name</th>
                         <th>Email</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                    <tr >
-                        <td>3</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                    <tr >
-                        <td>4</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                    <tr >
-                        <td>5</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                    <tr >
-                        <td>6</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                        <td>Column content</td>
-                    </tr>
-                </tbody>
             </table>
         </div>
     </div>
@@ -92,12 +48,38 @@
             Panel footer
         </div>
     </div>
+   <script src="/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="/js/plugins/morris/raphael.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/b-1.2.2/b-colvis-1.2.2/b-html5-1.2.2/fc-3.2.2/fh-3.1.2/kt-2.1.3/r-2.1.0/datatables.min.js"></script>
     <!-- jQuery -->
-    <script src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+
+    $(function() {
+     var table = $('#example').DataTable({
+        "ajax": {
+            url: "/api/users",
+            dataSrc: ''
+        },
+
+        "columns": [{
+            "data": "username"
+        }, {
+            "data": "firstName"
+        }, {
+            "data": "email"
+        }]
+    });
+
+
+});
+
+    </script>
     <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="Hello World"></script>
+    
+
 </body>
 
 </html>
