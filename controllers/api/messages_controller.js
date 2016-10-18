@@ -39,7 +39,7 @@ module.exports = function(app) {
                 })
                 .then(function(message) {
                     currentUser.addMessage(message);
-                    return res.json({ currentUser, project });
+                    return res.redirect('/api/messages/' +req.params.userId);
                 });
         })
     });

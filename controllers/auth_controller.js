@@ -111,7 +111,7 @@ module.exports = function(app) {
         var newPasswordConfirm = req.body.newPasswordConfirm;
 
         if (newPassword != newPasswordConfirm) {
-            return res.json({ "response": false, message: "Password does not match, Please try again!" });
+            return res.json({ "response": false, message: "New Passwords do not match, Please try again!" });
         }
 
         //This gets the user id from the database
