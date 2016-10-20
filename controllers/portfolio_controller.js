@@ -30,12 +30,15 @@ module.exports = function(app) {
             }).then(function(projectData) {
                 
                 res.locals.projects = projectData;
+                console.log(projectData);
+
                 res.render(page, { layout: "sampleportfolio" });
             })
         });
     };
 
     router.get('/:portfolio/', function(req, res) {
+
         renderPage(res, req.params.portfolio, "portfolio/about");
     });
 

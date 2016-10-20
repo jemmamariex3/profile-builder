@@ -15,10 +15,6 @@ module.exports = function(app) {
             });
         });
 
-
-
-
-
         router.get('/users?id', function(req, res) {
             user.findById(req.params.id).then(function(data) {
                 res.json(data);
