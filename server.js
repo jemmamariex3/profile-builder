@@ -7,7 +7,7 @@ var helpers = require('./config/helpers');
 var morgan = require('morgan');
 var session = require('client-sessions');
 var models = require('./models');
-
+var fileUpload = require('express-fileupload');
 
 var app = express();
 
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
-
+app.use(fileUpload());
 
 var hbs = exphbs.create({
     defaultLayout: 'main',
