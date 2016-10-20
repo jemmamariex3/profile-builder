@@ -39,6 +39,22 @@ module.exports = function(app) {
 
     }); // use this on the front end and will give projects for specific user.
 
+    router.get('/projects', function(req, res) {
+        project.findAll().then(function(data) {
+            res.json(data);
+        })
+
+    });
+    router.get('/projectById/:id', function(req, res) {
+        project.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(data) {
+            res.json(data);
+        })
+
+    });
     //=======================****************==============================================================
     router.post('/projects', function(req, res) {
         var r = req.body;
