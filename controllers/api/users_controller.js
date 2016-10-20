@@ -64,7 +64,7 @@ module.exports = function(app) {
             }
 
             sampleFile = req.files.pic;
-            sampleFile.mv('/filename.jpg', function(err) {
+            sampleFile.mv('./public/user_images/' +res.locals.user.username+sampleFile.mimetype.replace("image/", "."), function(err) {
                 if (err) {
                     res.status(500).send(err);
                 } else {
