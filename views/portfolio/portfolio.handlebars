@@ -28,84 +28,34 @@
                     {{!-- {{this.name}} --}}
 
 
-                </h4> 
+                </h4>
             </div>
             <div class="modal-body">
-
-
                 {{!-- {{this.linkLiveDemo}} {{this.description}}
                 <br> {{this.linkGithub}} --}}
-
-
             </div>
             <div class="modal-footer">
-                
-
                 {{!-- {{this.createdAt}} --}}
-
-
             </div>
         </div>
     </div>
 </div>
 {{#section 'script'}}
 <script type="text/javascript">
-// $(function() {
 
+var settings = {
+    "url": "http://localhost:3000/api/projectById/2",
+    "method": "GET"
+}
 
-//     $('.row').on("click", ".button-for-jemma", function() {
-//         $('#myModal').modal("show");
-//         console.log($(this).attr("data-project"))
-//     });
+$.ajax(settings).done(function(response) {
 
-// });
-    $( document ).ready(function()
-    {
-       $(".button-for-jemma").click(function(){
+    $('.row').on("click", ".button-for-jemma", function() {
+        $('#myModal').modal("show");
+        console.log($(this).attr("data-project"));
+        console.log(response);
+    });
 
-     $.ajax({
-        url: "./controllers/api/projects_controller",
-            type: "GET",
-            data: { 'page':'create_user', 'access':'user','username':'user', 'password':'user'},
-            dataType: "text",
-            success: function (html) {
-                //Prints the Response Body
-                console.log(html);
-
-
-          var teamNames = new Array();
-          var res = html.match(/insertNewChild(.*);/g);
-                for(var i =0;i<res.length;i++)
-                {
-
-                    //Parse out names of the desired strings         
-                    var temp = res[i].split(',');
-                    if(temp.length >= 3)
-                    {
-
-               //Store the desired strings in an string array 
-              teamNames[i] = (temp[2].replace('");','')).replace('"','');
-                    }                   
-                }
-
-
-              for(var i = 0; i<teamNames.length; i++){
-
-                 //this will print names of all the basketball teams (desired string)
-                 alert(widgetNames[i]);
-
-                 //create buttons using the printed string
-
-
-              }
-
-            }
-
-       });
-      });
-
-
-    })
-
+});
 </script>
 {{/section}}

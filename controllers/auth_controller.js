@@ -15,20 +15,20 @@ var bcrypt = require('bcrypt');
 //=======================****************==============================================================
 //function to find user by username. cb(exists, data)  is returned. Exists will be true or false
 module.exports = function(app) {
-    function findByUsername(username, cb) {
-        user.findOne({
-            where: {
-                'username': username
-            }
-        }).then(function(data) {
-            if (data == null) {
-                cb(false, data);
-            } else {
-                cb(true, data);
-            }
+        function findByUsername(username, cb) {
+            user.findOne({
+                where: {
+                    'username': username
+                }
+            }).then(function(data) {
+                if (data == null) {
+                    cb(false, data);
+                } else {
+                    cb(true, data);
+                }
 
-        })
-    };
+            })
+        };
 
     //=======================****************==============================================================
     //Router function for the initial user registration
@@ -88,6 +88,7 @@ module.exports = function(app) {
                         // you can make the site operate as intended for logged in users
                         req.session.user = userData;
                         //res.json({ "Response": "Success. You have logged in." })
+                        return res.json({ "response": true, message: "Welcome!" });
                         res.redirect('/mydashboard');
                     } else {
                         // otherwise, you can black access to parts of your site
@@ -102,43 +103,43 @@ module.exports = function(app) {
 
     //=======================****************==============================================================
     //Router function for the Reset password 
-    router.post('/reset-password', function(req, res) {
-        var username = req.body.username;
-        var password = req.body.password;
-        var userID = req.session.user.id
-            //New Pass word Variable 
-        var newPassword = req.body.newPassword;
-        var newPasswordConfirm = req.body.newPasswordConfirm;
+   router.post('/reset-password', function(req, res) {
+       var username = req.body.username;
+       var password = req.body.password;
+       var userID = req.session.user.id
+           //New Password Variables 
+       var newPassword = req.body.newPassword;
+       var newPasswordConfirm = req.body.newPasswordConfirm;
 
-        if (newPassword != newPasswordConfirm) {
-            return res.json({ "response": false, message: "New Passwords do not match, Please try again!" });
-        }
+       if (newPassword != newPasswordConfirm) {
+           return res.json({ "response": false, message: "Sorry! Your new Passwords do not match" });
+       }
 
-        //This gets the user id from the database
-        user.findById(userID).then(function(data) {
-            bcrypt.compare(password, data.password, function(err, matched) {
-                // if the password is true
-                if (matched === true) {
+       //This gets the user id from the database
+       user.findById(userID).then(function(data) {
+           bcrypt.compare(password, data.password, function(err, matched) {
+               // if the password is true
+               if (matched === true) {
 
-                    bcrypt.genSalt(10, function(err, salt) {
-                        // once the salt is made, hash the password with that salt
-                        bcrypt.hash(newPassword, salt, function(err, hash) {
+                   bcrypt.genSalt(10, function(err, salt) {
+                       // once the salt is made, hash the password with that salt
+                       bcrypt.hash(newPassword, salt, function(err, hash) {
 
-                            data.update({
-                                    password: hash
-                                })
-                                .then(function(data) {
-                                    return res.json({ "response": true, message: "Your Password has been changed!" });
-                                });
-                        });
-                    });
-                } else {
-                    // otherwise, you can black access to parts of your site
-                    return res.json({ "response": false, message: "Your original Password does not match, Please try again!" });
-                }
-            });
-        })
-    });
+                           data.update({
+                                   password: hash
+                               })
+                               .then(function(data) {
+                                   return res.json({ "response": true, message: "Your Password has been changed!" });
+                               });
+                       });
+                   });
+               } else {
+                   // otherwise, you can black access to parts of your site
+                   return res.json({ "response": false, message: "Your original Password does not match, Please try again!" });
+               }
+           });
+       })
+   });
 
 
 
