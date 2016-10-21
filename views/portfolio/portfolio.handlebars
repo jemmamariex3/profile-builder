@@ -42,9 +42,9 @@
 <script type="text/javascript">
 
 $('.row').on("click", ".button-for-jemma", function() {
-    var userId = $(this).attr("data-id");
+    var projectId = $(this).attr("data-id");
     $.ajax({
-        url:'/api/projectById/1',
+        url:'/api/projectById/' + projectId,
         method: 'GET'
     }).done(function (response) {
         console.log(response);
