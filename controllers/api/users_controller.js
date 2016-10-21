@@ -68,7 +68,8 @@ module.exports = function(app) {
                 if (err) {
                     res.status(500).send(err);
                 } else {
-                    res.send('File uploaded!');
+                    // res.send('File uploaded!');
+                    res.redirect("/mydashboard/aboutme");
                 }
             });
         })
