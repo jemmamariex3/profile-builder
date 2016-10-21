@@ -7,7 +7,7 @@
 <!-- Trigger the modal with a button -->
 <div class="row">
     {{#each projects}}
-    <div class="col-xs-4 button-for-jemma" data-project="{{this}}">
+    <div class="col-xs-4 button-for-jemma" data-id="{{this.id}}">
         <h3>{{this.name}}</h3> {{!--
         <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#myModal"><img src="https://openclipart.org/image/2400px/svg_to_png/177482/ProfilePlaceholderSuit.png" width="100" height="100">
         </button> --}}
@@ -43,19 +43,16 @@
 {{#section 'script'}}
 <script type="text/javascript">
 
-var settings = {
-    "url": "http://localhost:3000/api/projectById/2",
-    "method": "GET"
-}
-
-$.ajax(settings).done(function(response) {
-
-    $('.row').on("click", ".button-for-jemma", function() {
-        $('#myModal').modal("show");
-        console.log($(this).attr("data-project"));
+$('.row').on("click", ".button-for-jemma", function() {
+    var userId = $(this).attr("data-id");
+    $.ajax({
+        url:'/api/projectById/1',
+        method: 'GET'
+    }).done(function (response) {
         console.log(response);
+        $('#myModal').modal("show");
     });
-
 });
+
 </script>
 {{/section}}

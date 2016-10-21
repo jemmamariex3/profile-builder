@@ -38,8 +38,10 @@ module.exports = function(app) {
     };
 
     router.get('/:portfolio/', function(req, res) {
+        if(req.params.porfolio !== "favicon.ico"){
+            renderPage(res, req.params.portfolio, "portfolio/about");
+        }
 
-        renderPage(res, req.params.portfolio, "portfolio/about");
     });
 
     router.get('/:portfolio/portfolio', function(req, res) {

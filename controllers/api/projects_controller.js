@@ -59,10 +59,8 @@ module.exports = function(app) {
     router.post('/projects', function(req, res) {
         var r = req.body;
 
-        console.log('start');
         User.findById(res.locals.user.id).then(function(curUser) {
             currentUser = curUser;
-            //console.log(currentUser);
 
             project.create({
                     name: r.name,
@@ -73,8 +71,6 @@ module.exports = function(app) {
                 })
                 .then(function(project) {
                     currentUser.addProject(project);
-                    console.log(currentUser);
-                    console.log(project);
                     return res.json({currentUser, project});
                 });
         })
