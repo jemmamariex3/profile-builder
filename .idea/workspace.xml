@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d14d7a9c-a9d3-44c0-8f22-c3f56a6043da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/api/services_controller.js" afterPath="$PROJECT_DIR$/controllers/api/services_controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/dashboard/services.handlebars" afterPath="$PROJECT_DIR$/views/dashboard/services.handlebars" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/page/sidebar.handlebars" afterPath="$PROJECT_DIR$/views/partials/page/sidebar.handlebars" />
     </list>
     <ignored path="profile-builder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,18 +51,8 @@
       <file leaf-file-name="portfolio.handlebars" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/portfolio/portfolio.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+            <state relative-caret-position="196">
+              <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -100,8 +91,18 @@
       <file leaf-file-name="services.handlebars" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/dashboard/services.handlebars">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+            <state relative-caret-position="-821">
+              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav.handlebars" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/page/nav.handlebars">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1121">
+              <caret line="22" column="73" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -147,12 +148,12 @@
         <option value="$PROJECT_DIR$/controllers/api/projects_controller.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/views/portfolio/portfolio.handlebars" />
-        <option value="$PROJECT_DIR$/views/partials/page/sidebar.handlebars" />
         <option value="$PROJECT_DIR$/models/user.js" />
         <option value="$PROJECT_DIR$/migrations/20161021052802-ServiceForeignKey.js" />
         <option value="$PROJECT_DIR$/views/dashboard/portfolio.handlebars" />
-        <option value="$PROJECT_DIR$/views/dashboard/services.handlebars" />
         <option value="$PROJECT_DIR$/controllers/api/services_controller.js" />
+        <option value="$PROJECT_DIR$/views/partials/page/sidebar.handlebars" />
+        <option value="$PROJECT_DIR$/views/dashboard/services.handlebars" />
       </list>
     </option>
   </component>
@@ -251,7 +252,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="page" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -767,12 +772,12 @@
       <workItem from="1476974999155" duration="365000" />
       <workItem from="1476986167349" duration="1431000" />
       <workItem from="1476995631539" duration="698000" />
-      <workItem from="1476997828049" duration="6410000" />
+      <workItem from="1476997828049" duration="6589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15252000" />
+    <option name="totallyTimeSpent" value="15431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
@@ -846,14 +851,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/landing/login.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/portfolio_controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1160,14 +1157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/page/sidebar.handlebars">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/portfolio/services.handlebars">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1226,8 +1215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/portfolio/portfolio.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        <state relative-caret-position="196">
+          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1242,10 +1231,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/page/sidebar.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/page/nav.handlebars">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1121">
+          <caret line="22" column="73" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/dashboard/services.handlebars">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
+        <state relative-caret-position="-821">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
           <folding />
         </state>
       </provider>
