@@ -59,9 +59,8 @@ module.exports = function(app) {
                 //UserId: res.locals.user.id
             })
                 .then(function(service) {
-                    currentUser.addProject(service);
-                    console.log(currentUser);
-                    console.log(service);
+                    currentUser.addService(service);
+
                     return res.json({currentUser, service});
                 });
         })

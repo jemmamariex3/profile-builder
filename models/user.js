@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         User.hasMany(models.Project);
         User.hasMany(models.Message);
+        User.hasMany(models.Service);
 
       }
     }
