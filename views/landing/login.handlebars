@@ -77,11 +77,11 @@
         $('form[name=login-form]').submit(function() {
             $.post($(this).attr('action'), $(this).serialize(), function(res) {
                 console.log(res.response);
-                if ( res.response) {
-                    window.location.href = "/login";
+                if (res.response) {
+                    window.location.href = "/mydashboard";
                 }
                 $("#message").text(res.message);
-                // location.reload();
+                // setTimeout(window.location.reload.bind(window.location), 1500);
             });
             // alert("User Name already Taken");
             return false; // prevent default action
