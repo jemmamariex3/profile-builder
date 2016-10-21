@@ -52,10 +52,8 @@ module.exports = function(app) {
             //console.log(currentUser);
 
             Service.create({
-                name: r.name,
-                linkLiveDemo: r.linkLiveDemo,
+                title: r.title,
                 description: r.description,
-                linkGitHub: r.linkGitHub,
                 //UserId: res.locals.user.id
             })
                 .then(function(service) {
