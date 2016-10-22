@@ -18,7 +18,8 @@ module.exports = function(app) {
 
     //The router that takes you to the product details page. 
      router.get('/details', function(req, res) {
-        res.render('/details.handlebars', {layout:false});
+
+        res.render('details/details.handlebars', {layout:false});
     });
 
 
