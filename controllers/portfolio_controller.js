@@ -4,6 +4,7 @@ var router = express.Router();
 var models = require('../models');
 var user = models.User;
 var project = models.Project;
+var service = models.Service;
 var sequelizeConnection = models.sequelize;
 var session = require('client-sessions');
 
@@ -28,19 +29,24 @@ module.exports = function(app) {
                     UserId: data.id
                 }
             }).then(function(projectData) {
-                
                 res.locals.projects = projectData;
-                console.log(projectData);
 
-                res.render(page, { layout: "sampleportfolio" });
+                service.findAll({
+                    where:{
+                        UserId: data.id
+                    }
+                }).then(function (serviceData) {
+                    res.locals.services = serviceData;
+                    res.render(page, { layout: "sampleportfolio" });
+                })
             })
         });
-    };
+    }
 
     router.get('/:portfolio/', function(req, res) {
-        if(req.params.porfolio !== "favicon.ico"){
+
             renderPage(res, req.params.portfolio, "portfolio/about");
-        }
+
 
     });
 
@@ -62,4 +68,4 @@ module.exports = function(app) {
     app.use('/', router);
 
 
-}
+};

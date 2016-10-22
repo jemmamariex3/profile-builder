@@ -46,10 +46,9 @@ module.exports = function(app) {
     router.post('/service', function(req, res) {
         var r = req.body;
 
-        console.log('start');
+
         User.findById(res.locals.user.id).then(function(curUser) {
             currentUser = curUser;
-            //console.log(currentUser);
 
             Service.create({
                 title: r.title,
