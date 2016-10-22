@@ -6,6 +6,9 @@ var router = express.Router();
 
 var models = require('../../models');
 var user = models.User;
+var project = models.Project;
+var service = models.Service;
+var message = models.Message;
 var sequelizeConnection = models.sequelize;
 
 
