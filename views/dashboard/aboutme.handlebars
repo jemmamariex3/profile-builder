@@ -1,7 +1,22 @@
-<form action="/api/users/uploadimage" method='POST'  enctype="multipart/form-data">
-  <input type="file" name="pic" accept="image/*">
-  <input type="submit">
-</form>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+        <form action="/api/users/uploadimage" method='POST'  enctype="multipart/form-data">
+
+            <label class="btn btn-default">
+                 Upload Pic<input type="file" style="display: none;" name="pic" accept="image/*">
+            </label>
+            <br>
+
+            {{!-- <input type="file" name="pic" accept="image/*"> --}}
+
+            <br>
+                <input type="submit" class="btn btn-primary">
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
+
 <form role="form" name="update-user" action="/api/users/{{user.id}}?_method=PUT" method="POST" enctype="multipart/form-data">
     <div class="form-group col-sm-6">
         <label for="disabledSelect">First Name</label>

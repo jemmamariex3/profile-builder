@@ -16,5 +16,12 @@ module.exports = function(app) {
         res.render('landing/searchresults.handlebars', {layout:false});
     });
 
+    //The router that takes you to the product details page. 
+     router.get('/details', function(req, res) {
+
+        res.render('details/details.handlebars', {layout:false});
+    });
+
+
     app.use('/', router);
 }
