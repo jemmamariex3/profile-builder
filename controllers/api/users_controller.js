@@ -88,7 +88,8 @@ module.exports = function(app) {
                     linkFacebook: r.linkFacebook,
                     linkStack: r.linkStack,
                     linkTwitter: r.linkTwitter,
-                    linkLinkedIn: r.linkLinkedIn
+                    linkLinkedIn: r.linkLinkedIn,
+                    headline: r.headline
                 }, {
                     where: {
                         id: req.params.id

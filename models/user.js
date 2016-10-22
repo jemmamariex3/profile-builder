@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     linkStack: DataTypes.STRING,
     linkTwitter: DataTypes.STRING,
     linkLinkedIn: DataTypes.STRING,
-    username: DataTypes.STRING
+    username: DataTypes.STRING,
+    headline: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
