@@ -5,47 +5,63 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title Page</title>
+    <title>{{user.firstName}}'s Portfolio</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/sample.css">
+    <link rel="stylesheet" type="text/css" href="/css/sample.css">
 </head>
 
 <body>
-    <div class="portfolio-img" style="background-image:url(img/sample-img.jpg);"></div>
+    <div class="portfolio-img" style="background-image:url(/user_images/{{user.username}}.jpeg";></div>
     <div class="transparency-layer"></div>
     <div class="container-fluid">
         <div class='toggle-button'>
             <span><i class="fa fa-bars fa-2x" id="hide"></i></span>
         </div>
         <div class="hidden-nav" style="display: none;">
-            <a href="#"><h2>ABOUT ME</h2></a>
-            <a href="#"><h2>PORTFOLIO</h2></a>
-            <a href="#"><h2>CONTACT</h2></a>
+            <a href="/{{user.username}}/about"><h2>ABOUT ME</h2></a>
+            <a href="/{{user.username}}/portfolio"><h2>PORTFOLIO</h2></a>
+            <a href="/{{user.username}}/contact"><h2>CONTACT</h2></a>
         </div>
         <div class="row">
             <div class="col-sm-12 no-float main-content">
                 <div class="row name">
                     <div class="col-xs-12">
-                        <h1>Frank Sinatra</h1>
+                        <h1>{{user.firstName}} {{user.lastName}}</h1>
                     </div>
                 </div>
+                <div class="col-sm-12 no-float main-content">
                 {{{body}}}
+                </div>
                 <div class="row section-block social-block">
                     <h4 class="pre">Find Me on Social Media</h4>
+
+                    {{#if user.linkGitHub}}
                     <div class="col-xs-6 col-sm-3">
-                        <a href="//github.com" target="_blank"><span><i class="fa fa-github fa-2x" id="hide"></i></span><h4>GitHub </h4></a>
+                        <a href="{{user.linkGitHub}}" target="_blank"><span><i class="fa fa-github fa-2x" id="hide"></i></span><h4>GitHub </h4></a>
                     </div>
+                    {{/if}}
+                    {{#if user.linkLinkedIn}}
                     <div class="col-xs-6 col-sm-3">
-                        <a href="" target="_blank"><span><i class="fa fa-linkedin fa-2x" id="hide"></i></span><h4>LinkedIn</h4></a>
+                        <a href="{{user.linkLinkedIn}}" target="_blank"><span><i class="fa fa-linkedin fa-2x" id="hide"></i></span><h4>LinkedIn</h4></a>
                     </div>
+                    {{/if}}
+                    {{#if user.linkFacebook}}
                     <div class="col-xs-6 col-sm-3">
-                        <a href="" target="_blank"><span><i class="fa fa-facebook fa-2x" id="hide"></i></span><h4>Facebook</h4></a>
+                        <a href="{{user.linkFacebook}}" target="_blank"><span><i class="fa fa-facebook fa-2x" id="hide"></i></span><h4>Facebook</h4></a>
                     </div>
+                    {{/if}}
+                    {{#if user.linkStack}}
                     <div class="col-xs-6 col-sm-3">
-                        <a href="" target="_blank"><span><i class="fa fa-twitter-square fa-2x" id="hide"></i></span><h4>Twitter</h4></a>
+                        <a href="{{user.linkStack}}" target="_blank"><span><i class="glyphicon glyphicon-align-justify fa-2x" id="hide"></i></span><h4>StackOverFlow</h4></a>
                     </div>
+                    {{/if}}
+                    {{#if user.linkTwitter}}
+                    <div class="col-xs-6 col-sm-3">
+                        <a href="{{linkTwitter}}" target="_blank"><span><i class="fa fa-twitter-square fa-2x" id="hide"></i></span><h4>Twitter</h4></a>
+                    </div>
+                    {{/if}}
                 </div>
             </div>
         </div>
@@ -54,8 +70,8 @@
             <div class="col-sm-12">
                 <div class="row name">
                     <div class="col-xs-12">
-                        <p>Powered by DevPoint</p>
-                        <p>All rights reserved</p>
+                        <p>Copyright © 2016. Dev Point, Inc. All rights reserved. - Powered By Dev Point.</p>
+                        
                     </div>
                 </div>
             </div>

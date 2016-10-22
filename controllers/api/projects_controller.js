@@ -27,6 +27,7 @@ module.exports = function(app) {
     //     })
     // });
 
+    //=======================****************==============================================================
     router.get('/projects/:userId', function(req, res) {
         project.findAll({
             where: {
@@ -36,16 +37,30 @@ module.exports = function(app) {
             res.json(data);
         })
 
+    }); // use this on the front end and will give projects for specific user.
+
+    router.get('/projects', function(req, res) {
+        project.findAll().then(function(data) {
+            res.json(data);
+        })
+
     });
+    router.get('/projectById/:id', function(req, res) {
+        project.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(data) {
+            res.json(data);
+        })
 
-
+    });
+    //=======================****************==============================================================
     router.post('/projects', function(req, res) {
         var r = req.body;
 
-        console.log('start');
         User.findById(res.locals.user.id).then(function(curUser) {
             currentUser = curUser;
-            //console.log(currentUser);
 
             project.create({
                     name: r.name,
@@ -56,13 +71,12 @@ module.exports = function(app) {
                 })
                 .then(function(project) {
                     currentUser.addProject(project);
-                    console.log(currentUser);
-                    console.log(project);
                     return res.json({currentUser, project});
                 });
         })
     });
 
+    //=======================****************==============================================================
     router.put('/projects/:id', function(req, res) {
         var r = req.body;
         project.update({
