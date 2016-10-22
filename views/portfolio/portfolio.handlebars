@@ -24,32 +24,45 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">
 
-                    {{!-- {{this.name}} --}}
-
                 </h4>
             </div>
             <div class="modal-body">
-                {{!-- {{this.linkLiveDemo}} {{this.description}}
-                <br> {{this.linkGithub}} --}}
+                
+                <h2>Overview:</h2>
+                <h5 id="description"></h5><br>
+                <h5 id="github"></h5><br>
+                <h5 id="video"></h5>
+
+
             </div>
             <div class="modal-footer">
-                {{!-- {{this.createdAt}} --}}
+                
+
+
             </div>
         </div>
     </div>
 </div>
 {{#section 'script'}}
 <script type="text/javascript">
-
 $('.row').on("click", ".button-for-jemma", function() {
     var projectId = $(this).attr("data-id");
     $.ajax({
-        url:'/api/projectById/' + projectId,
+        url: '/api/projectById/' + projectId,
         method: 'GET'
-    }).done(function (response) {
-        console.log(response);
+    }).done(function(response) {
         $('#myModal').modal("show");
+        console.log(response[0].name);
+
+        $(".modal-title").text(response[0].name);
+        $("#description").text(response[0].description); 
+        $('#github').text(response[0].linkGitHub); 
+        $('#video').text(response[0].linkLiveDemo);
+
+        $('.modal-footer').text(response[0].createdAt);
+
     });
+
 });
 </script>
 {{/section}}
