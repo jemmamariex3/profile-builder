@@ -164,18 +164,12 @@ module.exports = function(app) {
     //=======================****************==============================================================
     //Router for the Reset Password 
     router.get('/reset-password', function(req, res) {
-        // if(req.user){
-        //     return res.redirect('/reset-password');
-        // }
         res.render("reset-password", { layout: false });
     });
 
     //=======================****************==============================================================
     //Router for the Sign Up 
     router.get('/signup', function(req, res) {
-        // if(req.user){
-        //     return res.redirect('/reset-password');
-        // }
         res.render('landing/signup', { layout: false });
     });
 
